@@ -25,7 +25,7 @@ RUN mkdir /var/www/$siteName/public_html
 RUN mkdir /var/www/$siteName/log
 
 
-COPY $siteName.conf /etc/apache2/sites-available/$siteName.conf
+COPY docker_files/$siteName.conf /etc/apache2/sites-available/$siteName.conf
 
 RUN ["sudo","a2ensite","ESP"]
 RUN ["sudo","a2dissite","000-default"]
@@ -43,7 +43,7 @@ RUN ["sudo","service","apache2","start"]
 
 ##Make runit folder and file
 RUN mkdir /etc/service/ESP
-ADD ESP.sh /etc/service/ESP/run
+ADD docker_files/ESP.sh /etc/service/ESP/run
 
 
 
