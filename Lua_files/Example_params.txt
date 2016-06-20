@@ -1,0 +1,4 @@
+serverIP
+SSID
+Password
+
