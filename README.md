@@ -28,17 +28,15 @@ Things to change to make this work right away, if you already know what your doi
 #### Requirements
 
  * Linux:
-
   * pyserial : https://github.com/pyserial/pyserial - serial communication with python
-
   * esptool  : https://github.com/themadinventor/esptool - for flashing firmware
-   * Ex: sudo python esptool.py --port /dev/ttyUSB0 write_flash 0x00000 ~/Downloads/nodemcu-master-12-modules-2016-06-17-19-34-29-integer.bin 
+    * Ex: sudo python esptool.py --port /dev/ttyUSB0 write_flash 0x00000 ~/Downloads/nodemcu-master-12-modules-2016-06-17-19-34-29-integer.bin 
  
   * luatool  : https://github.com/4refr0nt/luatool       - for writeing files to ESP for first time (cable)
-   * Ex: luatool.py --port /dev/ttyUSB0 --src ~/ESP/init.lua --dest init.lua --verbose
+    * Ex: luatool.py --port /dev/ttyUSB0 --src ~/ESP/init.lua --dest init.lua --verbose
 
   * miniterm : https://github.com/pyserial/pyserial/blob/master/serial/tools/miniterm.py - for easy ESP serial communication 
-   * Ex: sudo miniterm.py /dev/ttyUSB0 115200
+    * Ex: sudo miniterm.py /dev/ttyUSB0 115200
 
 
 ### ESP
