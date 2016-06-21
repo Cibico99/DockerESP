@@ -1,10 +1,10 @@
 # DockerESP
-Wireless ESP upload/management in a Docker w/ Roomba control!
+Wireless ESP upload/management in a Docker!
 
-Feel free to use this to manage any ESP, doesn't have to be strapped to a roomba!
 
 ## Warning!!!
 Currently no security implemented!
+If your system is accessible from the internet, anyone could access your ESP's.
 
 ## Quick Start
 Things to change to make this work right away, if you already know what your doing, or just like getting lost like me =)
@@ -13,10 +13,10 @@ Things to change to make this work right away, if you already know what your doi
 
 2. **Lua_files/params.txt** 
  * You must create this file, Example_params.txt can be modified and renamed
- 1. Line 1: ServerIP : The ip that the ESP should connect to, which is your docker system
- 2. Line 2: SSID : The name of your wireless SSID(name)
- 3. Line 3: Password: The password for your network, **followed by a new line**
- 4. Line 4: A blank line because the line before this one ends in a new line!
+  1. Line 1: ServerIP : The ip that the ESP should connect to, which is your docker system
+  2. Line 2: SSID : The name of your wireless SSID(name)
+  3. Line 3: Password: The password for your network, **followed by a new line**
+  4. Line 4: A blank line because the line before this one ends in a new line!
 
 3. That's it! run ./rebuild.sh and the webpage should be available on the system at *serverIP*:8266
  * Errors/Warnings: rebuild.sh will throw 2 errors right at the beginning on your first run, just saying that the container doesn't exist when it tries to stop and remove it.
@@ -30,13 +30,13 @@ Things to change to make this work right away, if you already know what your doi
  * Linux:
   * pyserial : https://github.com/pyserial/pyserial - serial communication with python
   * esptool  : https://github.com/themadinventor/esptool - for flashing firmware
-    * Ex: sudo python esptool.py --port /dev/ttyUSB0 write_flash 0x00000 ~/Downloads/nodemcu-master-12-modules-2016-06-17-19-34-29-integer.bin 
+    * Ex: 'sudo python esptool.py --port /dev/ttyUSB0 write_flash 0x00000 ~/Downloads/nodemcu-master-12-modules-2016-06-17-19-34-29-integer.bin'
  
   * luatool  : https://github.com/4refr0nt/luatool       - for writeing files to ESP for first time (cable)
-    * Ex: luatool.py --port /dev/ttyUSB0 --src ~/ESP/init.lua --dest init.lua --verbose
+    * Ex: 'luatool.py --port /dev/ttyUSB0 --src ~/ESP/init.lua --dest init.lua --verbose'
 
   * miniterm : https://github.com/pyserial/pyserial/blob/master/serial/tools/miniterm.py - for easy ESP serial communication 
-    * Ex: sudo miniterm.py /dev/ttyUSB0 115200
+    * Ex: 'sudo miniterm.py /dev/ttyUSB0 115200'
 
 
 ### ESP
@@ -49,8 +49,7 @@ Set GPIO0 to GND to flash, restart ESP and imidiatly start the flashing process
 
  * Linux: sudo python esptool.py --port /dev/ttyUSB0  write_flash 0x00000 The_Path_To_The_NodeMCU_Firmware.bin
   * http://www.whatimade.today/flashing-the-nodemcu-firmware-on-the-esp8266-linux-guide/
-  * Required tool:
-   * esptool : https://github.com/themadinventor/esptool - for flashing firmware
+  * Required tool: esptool : https://github.com/themadinventor/esptool - for flashing firmware
 
 ##### Firmware
 https://github.com/nodemcu/nodemcu-firmware/releases
@@ -63,7 +62,7 @@ To manage the ESP over WIFI we need to load some well crafted Lua files, thanks 
 Files located in Lua_files, places these onto the ESP.
 After this you will be able to upload files wirelessly!
 
-* Command: luatool.py --port /dev/ttyUSB0 --src ~/ESP/init.lua --dest init.lua --verbose
+* Command: 'luatool.py --port /dev/ttyUSB0 --src ~/ESP/init.lua --dest init.lua --verbose'
 
    * luatool : https://github.com/4refr0nt/luatool       - for writeing files to ESP for first time (cable)
 
