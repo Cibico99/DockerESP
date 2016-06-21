@@ -1,10 +1,14 @@
 # DockerESP
 Wireless ESP upload/management in a Docker!
 
-
 ## Warning!!!
 Currently no security implemented!
 If your system is accessible from the internet, anyone could access your ESP's.
+
+
+## Overview
+1. ESP/ holds the php files for the website - this folder will be interactive with the container(mounted)
+2. Lua_files/ holds the files that are to be placed onto the ESP
 
 ## Quick Start
 Things to change to make this work right away, if you already know what your doing, or just like getting lost like me =)
@@ -18,7 +22,11 @@ Things to change to make this work right away, if you already know what your doi
   3. Line 3: Password: The password for your network, **followed by a new line**
   4. Line 4: A blank line because the line before this one ends in a new line!
 
-3. That's it! run ./rebuild.sh and the webpage should be available on the system at *serverIP*:8266
+3. **ESP/nodes.php** - Change the timezone for proper time logging, currently New_York.
+ * http://php.net/manual/en/timezones.america.php
+
+4. That's it! run **./rebuild.sh** and the webpage should be available on the system at *serverIP*:8266
+ * Connected nodes will log their MAC, IP, and Time in ESP/nodeIPs.txt
  * Errors/Warnings: rebuild.sh will throw 2 errors right at the beginning on your first run, just saying that the container doesn't exist when it tries to stop and remove it.
   * Another warning from apache will be thrown saying **ServerName** cannot be determined. This is defined in docker_files/ESP.conf(well not defined, but commented out). This is okay it just lets you know that apache could not determine the web address of the system, which for most is not a desired feature.
 
