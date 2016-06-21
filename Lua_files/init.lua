@@ -15,7 +15,7 @@ function sendIP(T) -- connect to server and send ESP IP, beacuse DHCP is better 
 end
 
 
-uart.setup(0,9600,8,0,1)
+uart.setup(0,9600,8,0,1) -- set baud to 9600
 wifi.setmode(wifi.STATION)
 
 file.open("params.txt",r) -- get parameters
@@ -37,5 +37,3 @@ remaining, used, total=file.fsinfo()
 print("\nFile system info:\nTotal : "..total.." Bytes\nUsed : "..used.." Bytes\nRemain: "..remaining.." Bytes")
 print("\nReady")
 dofile("servernode.lua")
-
-	
